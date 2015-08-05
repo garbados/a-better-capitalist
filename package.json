@@ -1,0 +1,25 @@
+{
+  "name": "a-better-capitalist",
+  "version": "1.0.0",
+  "description": "A better capitalist.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garbados/a-better-capitalist"
+  },
+  "author": "Diana Thayer <garbados@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garbados/a-better-capitalist/issues"
+  },
+  "homepage": "https://github.com/garbados/a-better-capitalist",
+  "devDependencies": {
+    "jscoverage": "^0.6.0",
+    "jsdoc": "^3.3.2",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5"
+  }
+}
