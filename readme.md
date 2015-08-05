@@ -5,6 +5,14 @@
 
 A better capitalist, or ABC for short, is a neural net trained to beat the market. Currently experimental.
 
+## Development Plan
+
+1. [IN PROGRESS] Train ABC against historical NASDAQ data; observe performance when fully-trained intelligence is dumped at various historical points.
+2. [TODO] Train ABC to parse news articles for their market impact, and integrate that reasoning into trading decisions.
+3. [TODO] Get ABC to read market data and financial news from live sources like Google News.
+4. [TODO] Train ABC on live markets; observe performance of paper trading.
+5. [TODO] Unleash with real cash money.
+
 ## What? Why?
 
 Capitalism makes sense for machines, and machine capitalists could [destroy the world](http://garbados.github.io/recent_stories/#/story/robot_capitalism.md). I want to test that hypothesis, and mess around with neural nets.
