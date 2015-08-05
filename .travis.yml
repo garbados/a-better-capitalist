@@ -1,0 +1,17 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+node_js:
+- '0.11'
+- '0.10'
+env:
+  global:
+  - GH_REF: github.com/garbados/a-better-capitalist.git
+  - secure: "ELtuTvye1iQ8g1RfnrjxyWfwMCQ4vebEmlD08PgGjcyCW3YIyJvGRA3ZCSrku4rXaYYhguX/gA28J32JTOGrXoWWT3YNNX8q8HI5j8sQTr3m1lZ/ZZNwXEuzEdK4lIcI25jd0DLujH4B+6UMiF6j5Cawp4KQUSdhRWCtnnT5t1L0Sjjn27yZhKk1U+K27yfUNCs0AfnH3AxknixS5LRDlGvV+mM9Xi12r5vFKw1ttJLhKehGsRRNOVSRtvj3snombN8I6zxLSPAhB+pPigHE/5UVglOiW7LAOhsyOg65L8zD9uLCJjy3oRywt70C6a/6g3f+1EmPYE5kMESBrNfPDZ3mh3cuQndB+OlKx64yjroso30mpbvnV3H54TAl8tGD2620tz8Cp1WQhNYeUPhHmUpe5STwTYINBKOFFJgMNSkms5j6N2+V58yL6WPDZcmR8LDr2Hhr7gtLYWd5P8YiZemG7m64tvBkXV6WyuChCWgxBIBVgquhbhepvRTT1qYanP0U9p9HrAlgMzrNuKsKvMQqHiYEyGS0ajJQVPfAqtoo8bRkwrilVHFNECJ1kHDAaGy2uapT8OyOINZSS8SLeB/eTGtW/M/POWsVmkDL1W+io8Ef0cuv1AoOl7ppLkQIIAALcAos6wW2C8RwUpJbqG8bRDRDRCRbfnDJOGe6TDg="
+before_script:
+- npm run download
+after_success:
+- npm run coveralls
+- npm run deploy
+

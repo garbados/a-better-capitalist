@@ -7,7 +7,17 @@ if (!process.env.ABC_DEBUG) {
   lib = require('../lib-cov');
 }
 
-var FIXTURES_DIR = process.env.ABC_FIXTURES_DIR || path.join(__dirname, 'fixtures');
+var FIXTURES_DIR = process.env.ABC_FIXTURES_DIR || path.join(__dirname, '..', 'fixtures');
 
-console.log(FIXTURES_DIR);
+describe('lib', function () {
+  before(function () {
+    this.quantquote = {};
+    this.quantquote.dir = path.join(FIXTURES_DIR, 'quantquote');
 
+    this.capitalist = new lib.Capitalist();    
+  });
+
+  it('should train on quantquote data', function () {
+    return this.capitalist.train_from_file(this.quantquote.dir);
+  });
+});
