@@ -1,0 +1,12 @@
+#!/bin/sh
+
+SOURCE_URL=http://quantquote.com/files/quantquote_daily_sp500_83986.zip
+TMP_FILE=.tmp.quantquote.zip
+FIXTURES_DIR=fixtures
+
+curl $SOURCE_URL -o $TMP_FILE
+unzip $TMP_FILE -d $FIXTURES_DIR -u
+rm $TMP_FILE
+
+echo '\n\nAll Done!'
+
