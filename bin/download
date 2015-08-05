@@ -5,7 +5,7 @@ TMP_FILE=.tmp.quantquote.zip
 FIXTURES_DIR=fixtures
 
 curl $SOURCE_URL -o $TMP_FILE
-unzip $TMP_FILE -d $FIXTURES_DIR -u
+unzip -uo $TMP_FILE -d $FIXTURES_DIR
 rm $TMP_FILE
 
 echo '\n\nAll Done!'
