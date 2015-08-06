@@ -47,6 +47,7 @@ npm test
 
 * [An introduction to automated trading](https://tradewave.net/help/trading)
 * [Neural Network Applications in Stock Market Predictions - A Methodology Analysis](http://www.efos.unios.hr/arhiva/dokumenti/mzekic_varazdin98.pdf)
+* [Markit On Demand APIs](http://dev.markitondemand.com/#doc_lookup)
 
 ## License
 
