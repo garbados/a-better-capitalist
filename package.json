@@ -8,7 +8,7 @@
     "deploy": "npm run doc && ./bin/deploy",
     "start": "./bin/start",
     "doc": "jsdoc lib -d doc -R readme.md",
-    "cov-html": "jscoverage lib lib-cov && ABC_DEBUG=true mocha -R cov-html > coverage.html",
+    "cov-html": "mkdir doc; jscoverage lib lib-cov && ABC_DEBUG=true mocha -R html-cov > doc/coverage.html",
     "coveralls": "ABC_DEBUG=true mocha -R mocha-lcov-reporter | coveralls",
     "test": "mocha -R spec"
   },
