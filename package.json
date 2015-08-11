@@ -29,7 +29,8 @@
     "jsdoc": "^3.3.2",
     "jshint": "^2.8.0",
     "mocha": "^2.2.5",
-    "mocha-lcov-reporter": "0.0.2"
+    "mocha-lcov-reporter": "0.0.2",
+    "nock": "^2.10.0"
   },
   "dependencies": {
     "bluebird": "^2.9.34",

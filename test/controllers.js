@@ -1,4 +1,37 @@
 var assert = require('assert');
+var nock = require('nock');
+
+var scope = nock('http://dev.markitondemand.com')
+  .get('/Api/v2/Quote/json?symbol=IBM')
+  .reply(200, {
+    Open: 1,
+    LastPrice: 2,
+    High: 3,
+    Low: 0,
+    Volume: 5
+  })
+  .get('/Api/v2/InteractiveChart/json?parameters=%7B%22StartDate%22%3A%222014-02-01T08%3A00%3A00-00%22%2C%22EndDate%22%3A%222014-02-15T08%3A00%3A00-00%22%2C%22DataPeriod%22%3A%22Day%22%2C%22Normalized%22%3Afalse%2C%22Elements%22%3A%5B%7B%22Symbol%22%3A%22IBM%22%2C%22Type%22%3A%22price%22%2C%22Params%22%3A%5B%22ohlc%22%5D%7D%5D%7D')
+  .reply(200, {
+    Elements: [{
+      DataSeries: {
+        open: [1],
+        close: [2],
+        high: [3],
+        low: [0]
+      }
+    }]
+  })
+  .get('/Api/v2/InteractiveChart/json?parameters=%7B%22NumberOfDays%22%3A10%2C%22DataPeriod%22%3A%22Day%22%2C%22Normalized%22%3Afalse%2C%22Elements%22%3A%5B%7B%22Symbol%22%3A%22IBM%22%2C%22Type%22%3A%22price%22%2C%22Params%22%3A%5B%22ohlc%22%5D%7D%2C%7B%22Symbol%22%3A%22GOOG%22%2C%22Type%22%3A%22price%22%2C%22Params%22%3A%5B%22ohlc%22%5D%7D%5D%7D')
+  .reply(200, {
+    Elements: [{
+      DataSeries: {
+        open: [1],
+        close: [2],
+        high: [3],
+        low: [0]
+      }
+    }]
+  });
 
 var controllers;
 if (process.env.ABC_DEBUG) {
