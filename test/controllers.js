@@ -10,7 +10,7 @@ var scope = nock('http://dev.markitondemand.com')
     Low: 0,
     Volume: 5
   })
-  .get('/Api/v2/InteractiveChart/json?parameters=%7B%22StartDate%22%3A%222014-02-01T08%3A00%3A00-00%22%2C%22EndDate%22%3A%222014-02-15T08%3A00%3A00-00%22%2C%22DataPeriod%22%3A%22Day%22%2C%22Normalized%22%3Afalse%2C%22Elements%22%3A%5B%7B%22Symbol%22%3A%22IBM%22%2C%22Type%22%3A%22price%22%2C%22Params%22%3A%5B%22ohlc%22%5D%7D%5D%7D')
+  .get('/Api/v2/InteractiveChart/json?parameters=%7B%22StartDate%22%3A%222014-02-01T00%3A00%3A00-00%22%2C%22EndDate%22%3A%222014-02-15T00%3A00%3A00-00%22%2C%22DataPeriod%22%3A%22Day%22%2C%22Normalized%22%3Afalse%2C%22Elements%22%3A%5B%7B%22Symbol%22%3A%22IBM%22%2C%22Type%22%3A%22price%22%2C%22Params%22%3A%5B%22ohlc%22%5D%7D%5D%7D')
   .reply(200, {
     Elements: [{
       DataSeries: {
@@ -56,8 +56,10 @@ describe('controllers', function () {
       return this.candles.get('IBM');
     });
 
-    it('should get a range of quotes', function () {
-      return this.candles.get('IBM', new Date(2014, 1, 1), new Date(2014, 01, 15));
+    it.only('should get a range of quotes', function () {
+      var begin = new Date(2014, 1, 1, -8);
+      var end = new Date(2014, 1, 15, -8);
+      return this.candles.get('IBM', begin, end);
     });
 
     it('should get a range of quotes for multiple symbols', function () {
