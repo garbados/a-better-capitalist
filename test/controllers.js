@@ -72,7 +72,7 @@ describe('controllers', function () {
       return this.candles.get('IBM');
     });
 
-    it.only('should get a range of quotes', function () {
+    it('should get a range of quotes', function () {
       var begin = 1391212800000;
       var end = 1392422400000;
       return this.candles.get('IBM', begin, end);
