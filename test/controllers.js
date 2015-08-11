@@ -57,8 +57,8 @@ describe('controllers', function () {
     });
 
     it.only('should get a range of quotes', function () {
-      var begin = new Date(2014, 1, 1, -8);
-      var end = new Date(2014, 1, 15, -8);
+      var begin = 1391212800000;
+      var end = 1392422400000;
       return this.candles.get('IBM', begin, end);
     });
 
