@@ -14,10 +14,18 @@ var scope = nock('http://dev.markitondemand.com')
   .reply(200, {
     Elements: [{
       DataSeries: {
-        open: [1],
-        close: [2],
-        high: [3],
-        low: [0]
+        open: {
+          values: [1]
+        },
+        close: {
+          values: [2]
+        },
+        high: {
+          values: [3]
+        },
+        low: {
+          values: [0]
+        }
       }
     }]
   })
@@ -25,10 +33,18 @@ var scope = nock('http://dev.markitondemand.com')
   .reply(200, {
     Elements: [{
       DataSeries: {
-        open: [1],
-        close: [2],
-        high: [3],
-        low: [0]
+        open: {
+          values: [1]
+        },
+        close: {
+          values: [2]
+        },
+        high: {
+          values: [3]
+        },
+        low: {
+          values: [0]
+        }
       }
     }]
   });
