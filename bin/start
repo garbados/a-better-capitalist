@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var csv = require('csv');
+var Promise = require('bluebird');
+
+var lib = require('..');
+
+var STOCK_FIXTURES_DIR = path.join('fixtures', 'quantquote_daily_sp500_83986', 'daily');
+
+// get file data for each stock history on record
+var stock_re = /table_(\w+).csv/;
+var stocks = {};
+fs.readdirSync(STOCK_FIXTURES_DIR).forEach(function (file) {
+  var symbol = file.replace(stock_re, '$1');
+  var stream = fs.createReadStream(path.join(STOCK_FIXTURES_DIR, file));
+  var parser = csv.parse({
+    columns: ['date', 'time', 'open', 'high', 'low', 'close', 'volume', 'splits', 'earnings', 'dividends']
+  });
+  var transformer = csv.transform(function (record) {
+    var keys = ['close', 'open', 'high', 'low', 'volume'];
+    var result = {};
+    keys.forEach(function (key) {
+      result[key] = Number(record[key]);
+    });
+    return result;
+  });
+  stream.pipe(parser).pipe(transformer);
+  stocks[symbol] = transformer;
+});
+
+// train a network on each stock on record
+var nets = {};
+var stock_symbols = Object.keys(stocks);
+var promises = stock_symbols.slice(-1).map(function (symbol) {
+  var stream = stocks[symbol];
+  var net = new lib.indicators.NeuralNet();
+  nets[symbol] = net;
+  return net.train(stream, {
+    log: 1
+  });
+});
+
+Promise.all(promises)
+.then(function (results) {
+  results.forEach(function (result, i) {
+    console.log(stock_symbols[i], result);
+  });
+});
+
+// TODO project each stock-specific network to a network representing the whole exchange
