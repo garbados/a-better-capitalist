@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/garbados/a-better-capitalist.svg?branch=master)](https://travis-ci.org/garbados/a-better-capitalist)
 [![Coverage Status](https://coveralls.io/repos/garbados/a-better-capitalist/badge.svg?branch=master&service=github)](https://coveralls.io/github/garbados/a-better-capitalist?branch=master)
 
-A better capitalist, or ABC for short, is a neural net trained to beat the market. Currently experimental.
+A better capitalist, or ABC for short, is a learning intelligence trained to beat the market. Currently experimental.
 
 ## Development Plan
 
@@ -11,7 +11,7 @@ A better capitalist, or ABC for short, is a neural net trained to beat the marke
 2. [TODO] Train ABC to parse news articles for their market impact, and integrate that reasoning into trading decisions.
 3. [TODO] Get ABC to read market data and financial news from live sources like Google News.
 4. [TODO] Train ABC on live markets; observe performance of paper trading.
-5. [TODO] Unleash with real cash money.
+5. [TODO] Unleash with [cash money](https://youtu.be/whFBCIzwxp8?t=1m43s).
 
 ## What? Why?
 
@@ -32,7 +32,7 @@ Your Capitalist is now running!
 
 ## Usage
 
-TODO
+Although ABC is under active development, you can check out its documentation [here](http://garbados.github.io/a-better-capitalist/).
 
 ## Test
 
@@ -52,4 +52,3 @@ npm test
 ## License
 
 [ISC](http://opensource.org/licenses/ISC), yo.
-
