@@ -22,7 +22,7 @@ describe('models', function () {
     });
 
     it('should add properties to objects', function () {
-      function TestObject () {};
+      function TestObject () {}
 
       models.BaseModel.addProperty(TestObject, 'name', 'dork');
 

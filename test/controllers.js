@@ -83,6 +83,6 @@ describe('controllers', function () {
         NumberOfDays: 10,
         DataPeriod: 'Day'
       });
-    })
+    });
   });
 });

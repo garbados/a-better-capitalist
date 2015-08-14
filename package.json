@@ -10,7 +10,7 @@
     "doc": "jsdoc lib -d doc -R readme.md",
     "cov-html": "mkdir doc; jscoverage lib lib-cov && ABC_DEBUG=true mocha -R html-cov > doc/coverage.html",
     "coveralls": "jscoverage lib lib-cov && ABC_DEBUG=true mocha -R mocha-lcov-reporter | coveralls",
-    "test": "mocha -R spec",
+    "test": "jshint lib test && mocha -R spec",
     "todo": "grep todo -ir lib test"
   },
   "repository": {
@@ -34,9 +34,9 @@
   },
   "dependencies": {
     "bluebird": "^2.9.34",
-    "brain": "^0.7.0",
     "csv": "^0.4.5",
     "request": "^2.60.0",
+    "synaptic": "^1.0.1",
     "walk": "^2.3.9"
   }
 }
