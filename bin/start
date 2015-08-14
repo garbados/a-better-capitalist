@@ -50,3 +50,4 @@ Promise.all(promises)
 });
 
 // TODO project each stock-specific network to a network representing the whole exchange
+// TODO convert exchange intelligence to a function, test it at different historical points
